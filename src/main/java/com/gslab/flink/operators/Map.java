@@ -15,7 +15,7 @@ public class Map {
     public static void main(String[] args) throws Exception {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.setParallelism(2);
+        env.setParallelism(8);
         
         ArrayList<String> list = new ArrayList<String>();
         list.add("Flink");
@@ -35,12 +35,12 @@ public class Map {
     	
     	@Override
 		public void close() throws Exception {
-    		System.out.println("Open() called "+Thread.currentThread().getName());
+    		System.out.println("close() called "+Thread.currentThread().getName());
 		}
 
 		@Override
 		public void open(Configuration parameters) throws Exception {
-			System.out.println("close() called "+Thread.currentThread().getName());
+			System.out.println("open() called "+Thread.currentThread().getName());
 		}
 
 		@Override

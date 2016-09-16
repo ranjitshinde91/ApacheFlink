@@ -37,12 +37,12 @@ public class FlatMap {
     	
     	@Override
 		public void close() throws Exception {
-    		System.out.println("Open() called "+Thread.currentThread().getName());
+    		System.out.println("close() called "+Thread.currentThread().getName());
 		}
 
 		@Override
 		public void open(Configuration parameters) throws Exception {
-			System.out.println("close() called "+Thread.currentThread().getName());
+			System.out.println("open() called "+Thread.currentThread().getName());
 		}
 
 		@Override
