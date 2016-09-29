@@ -1,4 +1,4 @@
-package com.gslab.flink.metrics;
+package com.demo.flink.metrics;
 
 import java.util.ArrayList;
 

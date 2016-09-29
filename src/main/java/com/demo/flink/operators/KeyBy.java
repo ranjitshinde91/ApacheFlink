@@ -1,4 +1,4 @@
-package com.gslab.flink.operators;
+package com.demo.flink.operators;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -38,6 +38,7 @@ public class KeyBy {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
         env.setStateBackend(new FsStateBackend("file:///C://flink/"));
+        env.enableCheckpointing(10);
         
         ArrayList<String> list = new ArrayList<String>();
         list.add("Flink");

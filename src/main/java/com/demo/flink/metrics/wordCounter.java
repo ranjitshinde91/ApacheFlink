@@ -1,4 +1,4 @@
-package com.gslab.flink.metrics;
+package com.demo.flink.metrics;
 
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
