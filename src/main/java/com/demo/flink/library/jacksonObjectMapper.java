@@ -1,3 +1,4 @@
+package com.demo.flink.library;
 import java.io.IOException;
 import java.util.Map;
 
@@ -36,6 +37,10 @@ public class jacksonObjectMapper extends JSONDeserializationSchema {
 		System.out.println(objectNode2.get("country").isTextual());
 		System.out.println(objectNode2.get("country").isInt());
 		
+		//POJO conversion
+		User user =  mapper.convertValue(objectNode1, User.class);
+		System.out.println("POJO: "+ user.getName()+" -"+user.getAge());
+		
 		objectNode1.put("objectNodeField", true);
 		
 		System.out.println(objectNode1.get("objectNodeField").asBoolean());
@@ -45,5 +50,7 @@ public class jacksonObjectMapper extends JSONDeserializationSchema {
 		
 		Map<String, Object> result = mapper.convertValue(objectNode1, Map.class);
 		System.out.println(result.get("name"));
+		
+		
 	}
 }
