@@ -22,12 +22,12 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 4> (Dassandra,9)
 4> (Cassandra,9)
 
-Data with same key always goes to same sink, i.e it processes this by sequencally for key
+Message with same key always goes to same sink, i.e  sequentially for key
 it could  impact application performance if used frequently
 
 
-instance varibales will be shared even if you do keyBy, keyBy will share operators
-state will be differrent for each key
+instance variables will be shared even if you do keyBy, keyBy will share operators
+state will be different for each key
 
 **/
 public class KeyBy {

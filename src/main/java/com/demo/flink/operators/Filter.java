@@ -3,16 +3,16 @@ package com.demo.flink.operators;
 import java.util.ArrayList;
 
 import org.apache.flink.api.common.functions.RichFilterFunction;
-import org.apache.flink.api.common.functions.RichFlatMapFunction;
-import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.util.Collector;
 
-import com.demo.flink.operators.FlatMap.wordCounter;
-
+/**
+ * output
+ *  Cassandra
+ *  ElasticSearch
+ */
 public class Filter {
 
 public static void main(String[] args) throws Exception {
