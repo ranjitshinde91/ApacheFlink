@@ -1,4 +1,4 @@
-package com.demo.flink.failover;
+package com.demo.flink.common;
 
 import org.apache.kafka.clients.producer.*;
 

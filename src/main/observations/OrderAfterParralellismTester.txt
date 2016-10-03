@@ -1,0 +1,205 @@
+When I apply any operator after parallel operators
+Then order is not preserved
+
+2016-10-02 23:58:52 INFO  AppInfoParser:83 - Kafka commitId : 23c69d62a0cabf06
+message message0 processed by subtaskIndex 0
+message message1 processed by subtaskIndex 1
+message message2 processed by subtaskIndex 2
+message message4 processed by subtaskIndex 1
+message message3 processed by subtaskIndex 0
+message message5 processed by subtaskIndex 2
+message message6 processed by subtaskIndex 0
+message message7 processed by subtaskIndex 1
+message message9 processed by subtaskIndex 0
+message message10 processed by subtaskIndex 1
+message message12 processed by subtaskIndex 0
+message message8 processed by subtaskIndex 2
+message message15 processed by subtaskIndex 0
+message message13 processed by subtaskIndex 1
+message message18 processed by subtaskIndex 0
+message message16 processed by subtaskIndex 1
+message message21 processed by subtaskIndex 0
+message message11 processed by subtaskIndex 2
+message message24 processed by subtaskIndex 0
+message message19 processed by subtaskIndex 1
+message message27 processed by subtaskIndex 0
+message message22 processed by subtaskIndex 1
+message message30 processed by subtaskIndex 0
+message message14 processed by subtaskIndex 2
+message message33 processed by subtaskIndex 0
+message message25 processed by subtaskIndex 1
+message message36 processed by subtaskIndex 0
+message message28 processed by subtaskIndex 1
+message message17 processed by subtaskIndex 2
+message message39 processed by subtaskIndex 0
+message message31 processed by subtaskIndex 1
+message message42 processed by subtaskIndex 0
+message message34 processed by subtaskIndex 1
+message message20 processed by subtaskIndex 2
+message message45 processed by subtaskIndex 0
+message message23 processed by subtaskIndex 2
+message message48 processed by subtaskIndex 0
+message message37 processed by subtaskIndex 1
+message message51 processed by subtaskIndex 0
+message message40 processed by subtaskIndex 1
+message message26 processed by subtaskIndex 2
+message message54 processed by subtaskIndex 0
+message message43 processed by subtaskIndex 1
+message message57 processed by subtaskIndex 0
+message message29 processed by subtaskIndex 2
+message message46 processed by subtaskIndex 1
+message message32 processed by subtaskIndex 2
+message message49 processed by subtaskIndex 1
+message message35 processed by subtaskIndex 2
+message message60 processed by subtaskIndex 0
+message message52 processed by subtaskIndex 1
+message message63 processed by subtaskIndex 0
+message message38 processed by subtaskIndex 2
+message message66 processed by subtaskIndex 0
+message message55 processed by subtaskIndex 1
+message message69 processed by subtaskIndex 0
+message message41 processed by subtaskIndex 2
+message message58 processed by subtaskIndex 1
+message message44 processed by subtaskIndex 2
+message message61 processed by subtaskIndex 1
+message message47 processed by subtaskIndex 2
+message message72 processed by subtaskIndex 0
+message message50 processed by subtaskIndex 2
+message message64 processed by subtaskIndex 1
+message message53 processed by subtaskIndex 2
+message message67 processed by subtaskIndex 1
+message message75 processed by subtaskIndex 0
+message message56 processed by subtaskIndex 2
+message message70 processed by subtaskIndex 1
+message message59 processed by subtaskIndex 2
+message message73 processed by subtaskIndex 1
+message message78 processed by subtaskIndex 0
+message message62 processed by subtaskIndex 2
+message message76 processed by subtaskIndex 1
+message message65 processed by subtaskIndex 2
+message message79 processed by subtaskIndex 1
+message message68 processed by subtaskIndex 2
+message message82 processed by subtaskIndex 1
+message message81 processed by subtaskIndex 0
+message message71 processed by subtaskIndex 2
+message message85 processed by subtaskIndex 1
+message message74 processed by subtaskIndex 2
+message message88 processed by subtaskIndex 1
+message message77 processed by subtaskIndex 2
+message message91 processed by subtaskIndex 1
+message message80 processed by subtaskIndex 2
+message message94 processed by subtaskIndex 1
+message message83 processed by subtaskIndex 2
+message message86 processed by subtaskIndex 2
+message message89 processed by subtaskIndex 2
+message message84 processed by subtaskIndex 0
+message message92 processed by subtaskIndex 2
+message message97 processed by subtaskIndex 1
+message message95 processed by subtaskIndex 2
+message message87 processed by subtaskIndex 0
+message message98 processed by subtaskIndex 2
+message message90 processed by subtaskIndex 0
+message message93 processed by subtaskIndex 0
+message message96 processed by subtaskIndex 0
+message message99 processed by subtaskIndex 0
+message1
+message4
+message7
+message10
+message13
+message16
+message19
+message22
+message25
+message28
+message31
+message34
+message37
+message40
+message43
+message46
+message49
+message52
+message55
+message58
+message61
+message64
+message67
+message70
+message73
+message76
+message79
+message82
+message85
+message88
+message91
+message94
+message97
+message2
+message5
+message8
+message11
+message14
+message17
+message20
+message23
+message26
+message29
+message32
+message35
+message38
+message41
+message44
+message47
+message50
+message53
+message56
+message59
+message62
+message65
+message68
+message71
+message74
+message77
+message80
+message83
+message86
+message89
+message92
+message95
+message98
+message0
+message3
+message6
+message9
+message12
+message15
+message18
+message21
+message24
+message27
+message30
+message33
+message36
+message39
+message42
+message45
+message48
+message51
+message54
+message57
+message60
+message63
+message66
+message69
+message72
+message75
+message78
+message81
+message84
+message87
+message90
+message93
+message96
+message99
+2016-10-02 23:58:52 INFO  CheckpointCoordinator:474 - Triggering checkpoint 1 @ 1475470732872

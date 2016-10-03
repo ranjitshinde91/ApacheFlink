@@ -1,4 +1,4 @@
-package com.demo.flink.failover;
+package com.demo.flink.common;
 
 public class MyException extends Exception {
 	
