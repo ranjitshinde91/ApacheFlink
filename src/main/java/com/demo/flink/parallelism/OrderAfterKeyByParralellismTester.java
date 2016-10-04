@@ -54,6 +54,6 @@ public class OrderAfterKeyByParralellismTester {
 				}).setParallelism(1);
 
 		outputStream.print();
-		env.execute("Flink state tester");
+		env.execute("KeyBy tester");
 	}
 }

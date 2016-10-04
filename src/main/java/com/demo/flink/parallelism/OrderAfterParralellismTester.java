@@ -42,7 +42,7 @@ public class OrderAfterParralellismTester {
 		}).setParallelism(1);
         
         outputStream.print();
-        env.execute("Flink state tester");
+        env.execute("Order tester");
 	}
 	
 }

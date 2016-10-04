@@ -15,30 +15,18 @@ import org.apache.flink.runtime.state.filesystem.FsStateBackend;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
-7> (Flink,5)
-7> (Kafka,5)
-4> (Dassandra,9)
-4> (Cassandra,9)
+import com.demo.flink.source.SequenceGenerator;
 
-Message with same key always goes to same sink, i.e  sequentially for key
-it could  impact application performance if used frequently
-
-
-instance variables will be shared even if you do keyBy, keyBy will share operators
-state will be different for each key
-
-**/
 public class KeyBy {
 
-	
+	private static Logger LOGGER = LoggerFactory.getLogger(KeyBy.class);
 	public static void main(String[] args) throws Exception {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
-        env.setStateBackend(new FsStateBackend("file:///C://flink/"));
-        env.enableCheckpointing(10);
         
         ArrayList<String> list = new ArrayList<String>();
         list.add("Flink");
@@ -48,12 +36,17 @@ public class KeyBy {
         list.add("ElasticSearch");
         list.add("Drill");
         list.add("S3");
+        list.add("S4");
+        list.add("1");
+        list.add("3");
         
         
         DataStreamSource<String> stream = env.fromCollection(list);
 
-        SingleOutputStreamOperator<Tuple2<String,Integer>> keyedDataStream = stream.keyBy(new keyByLength()).map(new wordCounter()).name("word count map");
-        keyedDataStream.print();
+        SingleOutputStreamOperator<Tuple2<String,Integer>> keyedDataStream = stream.keyBy(new keyByLength())
+        																		   .map(new wordCounter())
+        																		   .name("word count map")
+        																		   .setParallelism(4);
         env.execute("String length calculator");
     }
 
@@ -74,12 +67,12 @@ public class KeyBy {
     	
     	@Override
 		public void close() throws Exception {
-    		System.out.println("Close() called "+Thread.currentThread().getName());
+    		LOGGER.info("Close() called "+getRuntimeContext().getIndexOfThisSubtask());
 		}
 
 		@Override
 		public void open(Configuration parameters) throws Exception {
-			System.out.println("Open() called "+Thread.currentThread().getName());
+			LOGGER.info("Open() called "+getRuntimeContext().getIndexOfThisSubtask());
 			Random rand = new Random();
 			int  random = rand.nextInt(50) + 1;
 			
@@ -94,11 +87,13 @@ public class KeyBy {
 
 		@Override
 		public Tuple2<String, Integer> map(String value) throws Exception {
-			System.out.println("instance variable for: "+value+" - "+state);
-			System.out.println("state variable before for "+value+" - "+flinkState.value());
+			LOGGER.info("instance variable for: "+value+" - "+state);
+			LOGGER.info("state variable before for "+value+" - "+flinkState.value());
 			flinkState.update(value);
-			System.out.println("state variable after for "+value+" - "+flinkState.value());
-			return new Tuple2<String, Integer>(value, value.length());
+			LOGGER.info("state variable after for "+value+" - "+flinkState.value());
+			
+			LOGGER.info("message "+value+" came to  - "+getRuntimeContext().getIndexOfThisSubtask());
+			return new Tuple2<String, Integer>(value, getRuntimeContext().getIndexOfThisSubtask());
 		}
     }
 }

@@ -1,0 +1,7 @@
+Message with same key always goes to same downstream operator subtask, i.e  sequentially for key
+It could  impact application performance if used frequently
+
+
+Instance variables of the operator will be shared even if you do keyBy, keyBy will share operators
+
+Flink managed state variables will be different for each key
