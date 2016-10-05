@@ -9,9 +9,9 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer09;
 import org.apache.flink.streaming.util.serialization.DeserializationSchema;
 
+import com.demo.flink.common.MyDeserializationSchema;
 import com.demo.flink.common.MyException;
 import com.demo.flink.common.Sink;
-import com.demo.flink.failover.MyDeserializationSchema;
 
 public class ExceptionHandling {
 

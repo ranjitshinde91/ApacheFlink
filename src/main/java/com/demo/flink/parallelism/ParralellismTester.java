@@ -10,7 +10,7 @@ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer09;
 import org.apache.flink.streaming.util.serialization.DeserializationSchema;
 
 import com.demo.flink.common.ByteToStringConverter;
-import com.demo.flink.failover.MyDeserializationSchema;
+import com.demo.flink.common.MyDeserializationSchema;
 
 public class ParralellismTester {
 

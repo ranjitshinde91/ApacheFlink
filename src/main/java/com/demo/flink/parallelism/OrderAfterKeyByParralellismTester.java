@@ -13,13 +13,12 @@ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer09;
 import org.apache.flink.streaming.util.serialization.DeserializationSchema;
 
 import com.demo.flink.common.ByteToStringConverter;
-import com.demo.flink.failover.MyDeserializationSchema;
+import com.demo.flink.common.MyDeserializationSchema;
 
 public class OrderAfterKeyByParralellismTester {
 
 	public static <T> void main(String[] args) throws Exception {
-		StreamExecutionEnvironment env = StreamExecutionEnvironment
-				.getExecutionEnvironment();
+		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 		env.setParallelism(1);
 		env.enableCheckpointing(1000);
 		env.disableOperatorChaining();
@@ -32,10 +31,7 @@ public class OrderAfterKeyByParralellismTester {
 		properties.setProperty("auto.offset.reset", "earliest");
 
 		MyDeserializationSchema myDeserializationSchema = new MyDeserializationSchema();
-		DataStreamSource<byte[]> stream = (DataStreamSource<byte[]>) env
-				.addSource(new FlinkKafkaConsumer09<>("my-topic",
-						(DeserializationSchema<T>) myDeserializationSchema,
-						properties));
+		DataStreamSource<byte[]> stream = (DataStreamSource<byte[]>) env.addSource(new FlinkKafkaConsumer09<>("my-topic",(DeserializationSchema<T>) myDeserializationSchema,properties));
 		stream.setParallelism(1);
 
 		SingleOutputStreamOperator<String> outputStream = stream

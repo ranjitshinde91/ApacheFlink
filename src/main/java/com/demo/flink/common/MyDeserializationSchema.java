@@ -1,4 +1,4 @@
-package com.demo.flink.failover;
+package com.demo.flink.common;
 import java.io.IOException;
 
 import org.apache.flink.api.common.typeinfo.TypeInformation;
