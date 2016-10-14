@@ -2,7 +2,6 @@ package com.demo.flink.connectors;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,24 +38,25 @@ public class ElasticSearch2X {
 
 		List<InetSocketAddress> transports = new ArrayList<>();
 		transports.add(new InetSocketAddress(InetAddress.getByName("127.0.0.1"), 9300));
-
-		inputStream.addSink(new ElasticsearchSink(config, transports, new ElasticsearchSinkFunction<String>() {
-		  public IndexRequest createIndexRequest(String element) {
-		    Map<String, String> json = new HashMap<>();
-		    json.put("data", element);
-
-		    return Requests.indexRequest()
-		            .index("my-index")
-		            .type("my-type")
-		            .source(json);
-		  }
-
-		  @Override
-		  public void process(String element, RuntimeContext ctx, RequestIndexer indexer) {
-		    indexer.add(createIndexRequest(element));
-		  }
-		}));
 		
+		 ElasticsearchSinkFunction<String> elastciSearchFunction = new ElasticsearchSinkFunction<String>() {
+			  public IndexRequest createIndexRequest(String element) {
+			    Map<String, String> json = new HashMap<>();
+			    json.put("data", element);
+
+			    return Requests.indexRequest()
+			            .index("my-index")
+			            .type("my-type")
+			            .source(json);
+			  }
+
+			  @Override
+			  public void process(String element, RuntimeContext ctx, RequestIndexer indexer) {
+			    indexer.add(createIndexRequest(element));
+			  }
+		 };
+		 
+		inputStream.addSink(new ElasticsearchSink(config, transports, elastciSearchFunction));
 		env.execute();
 	}
 }
