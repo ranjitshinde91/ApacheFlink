@@ -1,0 +1,13 @@
+2017-01-11 17:51:06 INFO  KeyBy:67 - message Flink came to  - 3
+2017-01-11 17:51:06 INFO  KeyBy:67 - message S3 came to  - 2
+2017-01-11 17:51:06 INFO  KeyBy:67 - message Cassandra came to  - 1
+2017-01-11 17:51:06 INFO  KeyBy:67 - message S4 came to  - 0
+2017-01-11 17:51:06 INFO  KeyBy:67 - message Dassandra came to  - 1
+2017-01-11 17:51:06 INFO  KeyBy:67 - message 1 came to  - 2
+2017-01-11 17:51:06 INFO  KeyBy:67 - message Kafka came to  - 3
+2017-01-11 17:51:06 INFO  KeyBy:67 - message Drill came to  - 1
+2017-01-11 17:51:06 INFO  KeyBy:67 - message ElasticSearch came to  - 3
+2017-01-11 17:51:06 INFO  KeyBy:67 - message 3 came to  - 1
+
+Messages are getting distributed randomly
+
